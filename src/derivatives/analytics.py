@@ -71,6 +71,7 @@ def plot_educational_profile(strategy, spot_range, show_pnl=False, overlay_type=
             ), secondary_y=False)
 
     y2_label = ""
+    overlay_type = overlay_type.strip()
     if overlay_type != "None":
         deltas, gammas = [], []
         for s in spots:
