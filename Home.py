@@ -237,9 +237,9 @@ with res_col2:
     st.markdown(f'<p class="metric-label">Premium EUR</p><p class="metric-value">{current_premium:.2f}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Delta</p><p class="metric-value">{g_vals["delta"]:.3f}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Vega</p><p class="metric-value">{g_vals["vega"]:.3f}</p>', unsafe_allow_html=True)
-    st.markdown(f'<p class="metric-label">Type</p><p class="metric-value">{"Debit" if current_premium > 0 else "Credit"}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Gamma</p><p class="metric-value">{g_vals["gamma"]:.4f}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Theta</p><p class="metric-value">{g_vals["theta"]:.3f}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p class="metric-label">Type</p><p class="metric-value">{"Debit" if current_premium > 0 else "Credit"}</p>', unsafe_allow_html=True)
 
 with res_col1:
     v_colA, v_colB = st.columns([1, 1])
