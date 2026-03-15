@@ -13,8 +13,8 @@ st.markdown("""
     <style>
         .stButton button {height: 2.2rem; font-size: 0.8rem;}
         .stNumberInput input {height: 2rem;}
-        .metric-label { font-size: 0.8rem; color: gray; margin-bottom: 0px; }
-        .metric-value { font-size: 1.1rem; font-weight: bold; color: white; margin-top: 0px; }
+        .metric-label { font-size: 0.8rem; color: gray; margin-bottom: 0px; text-align: right; }
+        .metric-value { font-size: 1.1rem; font-weight: bold; color: white; margin-top: 0px; text-align: right; }
         .market-context { color: #888; font-size: 0.85rem; margin-bottom: 15px; }
         .market-param { display: inline-block; margin-right: 25px; color: #666; font-size: 0.8rem; }
         .market-param b { color: #888; margin-left: 5px; }
@@ -232,7 +232,7 @@ with col_spot2:
 res_col1, res_col2 = st.columns([5, 1])
 
 with res_col2:
-    st.subheader("Live Greeks (Advanced)")
+    st.markdown('<h3 style="text-align: right;">Live Greeks</h3>', unsafe_allow_html=True)
     g_vals = strategy.greeks()
     st.markdown(f'<p class="metric-label">Premium EUR</p><p class="metric-value">{current_premium:.2f}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Delta</p><p class="metric-value">{g_vals["delta"]:.3f}</p>', unsafe_allow_html=True)
