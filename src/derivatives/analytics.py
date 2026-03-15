@@ -119,7 +119,7 @@ def plot_vol_time_risk_profile(strategy, spot_range):
         theta_vals.append(t)
         
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=spots, y=vega_vals, mode='lines', name='Vega (EUR / +1% vol)', line=dict(color='#2ca02c', width=3), fill='tozeroy'))
+    fig.add_trace(go.Scatter(x=spots, y=vega_vals, mode='lines', name='Vega (EUR / +1% vol)', line=dict(color='#2ca02c', width=3)))
     fig.add_trace(go.Scatter(x=spots, y=theta_vals, mode='lines', name='Daily Theta (EUR / day)', line=dict(color='#d62728', width=2, dash='dot')))
     fig.update_layout(
         title="Volatility Risk (Vega) vs Time Decay (Theta)",
