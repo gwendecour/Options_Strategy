@@ -232,7 +232,7 @@ with col_spot2:
 res_col1, res_col2 = st.columns([5, 1])
 
 with res_col2:
-    st.markdown('<h3 style="text-align: right;">Live Greeks</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 style="text-align: right;">Live Greeks (Advanced)</h3>', unsafe_allow_html=True)
     g_vals = strategy.greeks()
     st.markdown(f'<p class="metric-label">Premium EUR</p><p class="metric-value">{current_premium:.2f}</p>', unsafe_allow_html=True)
     st.markdown(f'<p class="metric-label">Live Delta</p><p class="metric-value">{g_vals["delta"]:.3f}</p>', unsafe_allow_html=True)
@@ -272,5 +272,4 @@ with exp_col2:
     Theta represents the daily cost of holding your position. Options are wasting assets; they lose value every day 
     as they approach expiry. **Long positions suffer from Theta decay**, while sellers aim to capture this "time rent".
     """)
-st.markdown("---")
 st.caption("Developed by Gwendal for M. Laurent Deville")

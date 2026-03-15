@@ -13,6 +13,13 @@ def set_theme_css():
         }
         [data-testid="stHeader"] {
             background-color: rgba(14, 17, 23, 0.0);
+            height: 0px;
+        }
+        .block-container {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+            padding-left: 5rem !important;
+            padding-right: 5rem !important;
         }
         /* Style for radio buttons as pill buttons */
         div[role="radiogroup"] label[data-baseweb="radio"] {
@@ -55,5 +62,3 @@ def render_header():
             st.image("assets/logo.png", width=50)
     with col2:
         st.title("Options Strategy")
-    
-    st.divider()
