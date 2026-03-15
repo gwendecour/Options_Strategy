@@ -225,7 +225,7 @@ if df_breakdown is not None:
 st.divider()
 col_spot1, col_spot2 = st.columns([3, 1])
 with col_spot1:
-    m_spot = st.slider("Underlying Spot (S)", min_value=50.0, max_value=150.0, value=float(st.session_state.spot_slider), key="spot_slider", step=0.5, format="%.1f")
+    m_spot = st.slider("Underlying Spot (S)", min_value=50.0, max_value=150.0, key="spot_slider", step=0.5, format="%.1f")
 with col_spot2:
     st.write(f"(Current Strategy Premium: **{current_premium:.2f} EUR**)")
 
