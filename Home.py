@@ -180,7 +180,7 @@ for i, leg in enumerate(st.session_state.strategy_legs):
             st.session_state.strategy_legs.pop(i)
             st.session_state.builder_version += 1
             st.rerun()
-    new_legs_collector.append({'action': l_action, 'type': l_type, 'strike': l_strike, 'qty': l_qty, 'expiry': l_expiry})
+    new_legs_collector.append({'action': l_action, 'type': l_type, 'strike': round(float(l_strike), 2), 'qty': l_qty, 'expiry': l_expiry})
 
 st.session_state.strategy_legs = new_legs_collector
 
