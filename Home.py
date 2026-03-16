@@ -170,7 +170,7 @@ for i, leg in enumerate(st.session_state.strategy_legs):
     with c2:
         l_type = st.selectbox(f"T_{i}", ["Call", "Put", "Stock"], index=["Call", "Put", "Stock"].index(leg['type']), key=f"type_{i}_{v}", label_visibility="collapsed")
     with c3:
-        l_strike = st.number_input(f"S_{i}", value=float(leg['strike']), step=1.0, key=f"strike_{i}_{v}", label_visibility="collapsed", disabled=(l_type == "Stock"))
+        l_strike = st.number_input(f"S_{i}", value=round(float(leg['strike']), 2), step=1.0, key=f"strike_{i}_{v}", label_visibility="collapsed", disabled=(l_type == "Stock"))
     with c4:
         l_qty = st.number_input(f"Q_{i}", value=int(leg['qty']), min_value=1, key=f"qty_{i}_{v}", label_visibility="collapsed")
     with c5:

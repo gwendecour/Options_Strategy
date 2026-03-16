@@ -154,7 +154,8 @@ def get_payoff_breakdown(strategy):
     rows = []
     # For each leg, calculate expression in each interval
     for idx, (opt, qty) in enumerate(strategy.legs):
-        leg_label = f"{opt.option_type.capitalize()} K={opt.K}"
+        rk_label = f" K={round(opt.K, 2)}" if opt.option_type != "stock" else ""
+        leg_label = f"{opt.option_type.capitalize()}{rk_label}"
         leg_exprs = []
         
         for j in range(len(intervals)):
