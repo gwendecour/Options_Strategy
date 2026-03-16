@@ -63,9 +63,10 @@ def plot_educational_profile(strategy, spot_range, show_pnl=False, overlay_type=
                 leg_payoff = spots * qty
             
             action_label = "Long" if qty > 0 else "Short"
+            strike_label = f" K={round(opt.K, 2)}" if opt.option_type != "stock" else ""
             fig.add_trace(go.Scatter(
                 x=spots, y=leg_payoff, mode='lines', 
-                name=f"Leg {idx+1}: {action_label} {abs(qty)}x {opt.option_type.capitalize()} K={opt.K}",
+                name=f"Leg {idx+1}: {action_label} {abs(qty)}x {opt.option_type.capitalize()}{strike_label}",
                 line=dict(width=1.5, dash='dot', color=colors[idx % len(colors)]),
                 opacity=0.6
             ), secondary_y=False)
@@ -145,10 +146,10 @@ def get_payoff_breakdown(strategy):
     else:
         intervals = []
         # Define interval labels
-        intervals.append(f"ST < {strikes[0]}")
+        intervals.append(f"ST < {round(strikes[0], 2)}")
         for i in range(len(strikes)-1):
-            intervals.append(f"{strikes[i]} < ST < {strikes[i+1]}")
-        intervals.append(f"ST > {strikes[-1]}")
+            intervals.append(f"{round(strikes[i], 2)} < ST < {round(strikes[i+1], 2)}")
+        intervals.append(f"ST > {round(strikes[-1], 2)}")
     
     rows = []
     # For each leg, calculate expression in each interval
@@ -167,16 +168,17 @@ def get_payoff_breakdown(strategy):
                 
             # Logic to determine expression string
             mult = "" if qty == 1 else ("-" if qty == -1 else f"{qty} * ")
+            rk = round(opt.K, 2)
             if opt.option_type == "call":
                 if s_test < opt.K:
                     expr = "0"
                 else:
-                    expr = f"{mult}(ST - {opt.K})"
+                    expr = f"{mult}(ST - {rk})"
             elif opt.option_type == "put":
                 if s_test > opt.K:
                     expr = "0"
                 else:
-                    expr = f"{mult}({opt.K} - ST)"
+                    expr = f"{mult}({rk} - ST)"
             elif opt.option_type == "stock":
                 expr = f"{mult}ST"
             leg_exprs.append(expr)

@@ -73,32 +73,32 @@ def apply_strategy_preset():
     elif sel == "Protective Put":
         new_legs = [
             {'type': 'Stock', 'action': 'Buy', 'strike': 100.0, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Buy', 'strike': s * 0.95, 'qty': 1, 'expiry': 30}
+            {'type': 'Put', 'action': 'Buy', 'strike': round(s * 0.95, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Covered Call":
         new_legs = [
             {'type': 'Stock', 'action': 'Buy', 'strike': 100.0, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Sell', 'strike': s * 1.05, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Sell', 'strike': round(s * 1.05, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Bull Call Spread":
         new_legs = [
             {'type': 'Call', 'action': 'Buy', 'strike': s, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Sell', 'strike': s * 1.1, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Sell', 'strike': round(s * 1.1, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Bull Put Spread":
         new_legs = [
-            {'type': 'Put', 'action': 'Buy', 'strike': s * 0.9, 'qty': 1, 'expiry': 30},
+            {'type': 'Put', 'action': 'Buy', 'strike': round(s * 0.9, 2), 'qty': 1, 'expiry': 30},
             {'type': 'Put', 'action': 'Sell', 'strike': s, 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Bear Call Spread":
         new_legs = [
             {'type': 'Call', 'action': 'Sell', 'strike': s, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 1.1, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 1.1, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Bear Put Spread":
         new_legs = [
             {'type': 'Put', 'action': 'Buy', 'strike': s, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Sell', 'strike': s * 0.9, 'qty': 1, 'expiry': 30}
+            {'type': 'Put', 'action': 'Sell', 'strike': round(s * 0.9, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Straddle":
         new_legs = [
@@ -107,28 +107,28 @@ def apply_strategy_preset():
         ]
     elif sel == "Strangle":
         new_legs = [
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 1.05, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Buy', 'strike': s * 0.95, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 1.05, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Put', 'action': 'Buy', 'strike': round(s * 0.95, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Butterfly":
         new_legs = [
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 0.95, 'qty': 1, 'expiry': 30},
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 0.95, 2), 'qty': 1, 'expiry': 30},
             {'type': 'Call', 'action': 'Sell', 'strike': s, 'qty': 2, 'expiry': 30},
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 1.05, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 1.05, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Iron Condor":
         new_legs = [
-            {'type': 'Put', 'action': 'Sell', 'strike': s * 0.9, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Buy', 'strike': s * 0.85, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Sell', 'strike': s * 1.1, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 1.15, 'qty': 1, 'expiry': 30}
+            {'type': 'Put', 'action': 'Sell', 'strike': round(s * 0.9, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Put', 'action': 'Buy', 'strike': round(s * 0.85, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Call', 'action': 'Sell', 'strike': round(s * 1.1, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 1.15, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Box Spread":
         new_legs = [
-            {'type': 'Call', 'action': 'Buy', 'strike': s * 0.95, 'qty': 1, 'expiry': 30},
-            {'type': 'Call', 'action': 'Sell', 'strike': s * 1.05, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Buy', 'strike': s * 1.05, 'qty': 1, 'expiry': 30},
-            {'type': 'Put', 'action': 'Sell', 'strike': s * 0.95, 'qty': 1, 'expiry': 30}
+            {'type': 'Call', 'action': 'Buy', 'strike': round(s * 0.95, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Call', 'action': 'Sell', 'strike': round(s * 1.05, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Put', 'action': 'Buy', 'strike': round(s * 1.05, 2), 'qty': 1, 'expiry': 30},
+            {'type': 'Put', 'action': 'Sell', 'strike': round(s * 0.95, 2), 'qty': 1, 'expiry': 30}
         ]
     elif sel == "Calendar Spread":
         new_legs = [
