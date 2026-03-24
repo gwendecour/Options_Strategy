@@ -169,13 +169,15 @@ def get_payoff_breakdown(strategy):
                 
             # Logic to determine expression string
             mult = "" if qty == 1 else ("-" if qty == -1 else f"{qty} * ")
-            rk = round(opt.K, 2)
+            
             if opt.option_type == "call":
+                rk = round(opt.K, 2)
                 if s_test < opt.K:
                     expr = "0"
                 else:
                     expr = f"{mult}(ST - {rk})"
             elif opt.option_type == "put":
+                rk = round(opt.K, 2)
                 if s_test > opt.K:
                     expr = "0"
                 else:
